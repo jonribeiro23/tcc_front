@@ -2,11 +2,20 @@
 
 namespace App\Controllers;
 
-class Dashboard extends BaseController
-{
+use function App\Helpers\toGet;
+
+class Dashboard extends BaseController{
+    function __construct(){
+        helper('requests');
+    }
+
     public function index(){
+        $data = [];
+
+        $data['perfil'] = toGet('/profile/'.session()->get('id'), session()->get('access_token'));
+        $data['perfil'] = $data['perfil']->perfil[0];
         echo view('templates/header');
-        echo view('pages/dashboard/home');
+        echo view('pages/dashboard/home', $data);
         echo view('templates/footer_scripts');
     }
 

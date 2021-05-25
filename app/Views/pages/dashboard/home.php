@@ -1,3 +1,4 @@
+<?php $session = \Config\Services::session(); ?>
 <!-- Preloader Start -->
 <div id="preloader">
     <div class="preloader--inner"></div>
@@ -10,13 +11,18 @@
             <div class="cover--avatar online" data-overlay="0.3" data-overlay-color="primary">
                 <img src="<?= base_url('public/assets/img/cover-header-img/avatar-01.jpg') ?>" alt="">
             </div>
+            <?php if(isset($session->mensagem)): ?>
+                <div class="widget">
+                    <h3><?= $session->mensagem ?></h3>
+                </div>
+            <?php endif ?>
 
             <div class="cover--user-name">
                 <h2 class="h3 fw--600"><?= session()->get('nome') ?></h2>
             </div>
 
             <div class="cover--user-desc fw--400 fs--18 fstyle--i text-darkest">
-                <p>Escreva uma mensagem ou uma frase aqui.</p>
+                <p><?= isset($perfil)  ? $perfil->bio : '' ?></p>
                 <a href="#bio" data-toggle="modal" data-overlay="0.1">
                     <small class="btn btn-animate">
                         Editar
@@ -52,12 +58,11 @@
                                         <i class="ml--10 text-primary fa fa-caret-right"></i>
                                     </h3>
                                 </div>
-
                                 <div class="profile--info">
                                     <table class="table">
                                         <tr>
                                             <th class="fw--700 text-darkest">Principais habilidades</th>
-                                            <td>Graphic Design, Font-End Development, Web Development</td>
+                                            <td id="infoSobreMim"><?= isset($perfil)  ? $perfil->habilidades : '' ?></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -79,7 +84,7 @@
                                 </div>
 
                                 <div class="profile--info">
-                                    <p>Hello ! I’m <a href="#">Eileen K. Ruiz</a>. Senior web developer of themelooks.com from last 5 years many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing</p>
+                                    <p id="infoBiografia"><?= isset($perfil)  ? $perfil->biografia : '' ?></p>
                                 </div>
                             </div>
                             <!-- Profile Item End -->
@@ -99,26 +104,26 @@
                                 </div>
 
                                 <div class="profile--info">
-                                    <table class="table">
+                                    <table id="tbInfo" class="table">
                                         <tr>
                                             <th class="fw--700 text-darkest">E-mail</th>
-                                            <td><a href="mailto:demo@fakemail.com">demo@example.com</a></td>
+                                            <td><a target="_blank" href="<?= session()->get('email') ?>"><?= session()->get('email') ?></a></td>
                                         </tr>
                                         <tr>
                                             <th class="fw--700 text-darkest">Website</th>
-                                            <td><a href="#">example.com</a></td>
+                                            <td><a target="_blank" href="<?= isset($perfil)  ? $perfil->website : '' ?>"><?= isset($perfil)  ? $perfil->website : '' ?></a></td>
                                         </tr>
                                         <tr>
                                             <th class="fw--700 text-darkest">Instagram</th>
-                                            <td><a href="mailto:demo@fakemail.com">demo@example.com</a></td>
+                                            <td><a target="_blank" href="<?= isset($perfil)  ? $perfil->instagram : '' ?>"><?= isset($perfil)  ? $perfil->instagram : '' ?></a></td>
                                         </tr>
                                         <tr>
                                             <th class="fw--700 text-darkest">YouTube</th>
-                                            <td><a href="mailto:demo@fakemail.com">demo@example.com</a></td>
+                                            <td><a target="_blank" href="<?= isset($perfil)  ? $perfil->youtube : '' ?>"><?= isset($perfil)  ? $perfil->youtube : '' ?></a></td>
                                         </tr>
                                         <tr>
                                             <th class="fw--700 text-darkest">Facebook</th>
-                                            <td><a href="mailto:demo@fakemail.com">demo@example.com</a></td>
+                                            <td><a target="_blank" href="<?= isset($perfil)  ? $perfil->facebook : '' ?>"><?= isset($perfil)  ? $perfil->facebook : '' ?></a></td>
                                         </tr>
                                     </table>
                                 </div>

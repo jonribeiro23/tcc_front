@@ -8,7 +8,7 @@
                     <h3>Mensagem</h3>
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <textarea name="habilidades" placeholder="Escreva uma mensagem *" class="form-control" required></textarea>
+                            <textarea id="txtBio" name="habilidades" placeholder="Escreva uma mensagem *" class="form-control" required><?= isset($perfil)  ? $perfil->bio : '' ?></textarea>
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
                     <h3>Minhas principais habilidades</h3>
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <textarea name="habilidades" placeholder="Suas habilidades *" class="form-control" required></textarea>
+                            <textarea id="txtSobreMim" name="habilidades" placeholder="Suas habilidades *" class="form-control" required><?= isset($perfil)  ? $perfil->habilidades : '' ?></textarea>
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@
                     <h3>Biografia</h3>
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <textarea name="habilidades" placeholder="Suas biografia *" class="form-control" required></textarea>
+                            <textarea id="txtBiografia" name="habilidades" placeholder="Suas biografia *" class="form-control" required><?= isset($perfil)  ? $perfil->biografia : '' ?></textarea>
                         </div>
                     </div>
 
@@ -89,28 +89,28 @@
                         <div class="col-xs-6 col-xxs-12">
                             <div class="form-group">
                                 <label for="website"><strong>Website</strong></label>
-                                <input id="website" type="text" name="website" placeholder="Website *" class="form-control">
+                                <input id="website" type="text" name="website" placeholder="Website *" class="form-control" value="<?= isset($perfil)  ? $perfil->website : '' ?>">
                             </div>
                         </div>
 
                         <div class="col-xs-6 col-xxs-12">
                             <div class="form-group">
                                 <label for="instagram"><strong>Instagram</strong></label>
-                                <input id="instagram" type="text" name="instagram" placeholder="Instagram *" class="form-control" required>
+                                <input id="instagram" type="text" name="instagram" placeholder="Instagram *" class="form-control" value="<?= isset($perfil)  ? $perfil->instagram : '' ?>" required>
                             </div>
                         </div>
 
                         <div class="col-xs-6 col-xxs-12">
                             <div class="form-group">
                                 <label for="youtube"><strong>YouTube</strong></label>
-                                <input id="youtube" type="text" name="youtube" placeholder="YouTube *" class="form-control" required>
+                                <input id="youtube" type="text" name="youtube" placeholder="YouTube *" class="form-control" value="<?= isset($perfil)  ? $perfil->youtube : '' ?>" required>
                             </div>
                         </div>
 
                         <div class="col-xs-6 col-xxs-12">
                             <div class="form-group">
                                 <label for="facebook"><strong>Facebook</strong></label>
-                                <input id="facebook" type="text" name="facebook" placeholder="Facebook *" class="form-control" required>
+                                <input id="facebook" type="text" name="facebook" placeholder="Facebook *" class="form-control" value="<?= isset($perfil)  ? $perfil->facebook : '' ?>" required>
                             </div>
                         </div>
                     </div>

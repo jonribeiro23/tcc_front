@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use function App\Helpers\toPost;
+use function App\Helpers\toPut;
 
 class User extends BaseController{
     protected $session;
@@ -34,7 +35,7 @@ class User extends BaseController{
                 'senha' => hash('gost', $this->request->getVar('senha'))
             ]);
 
-            $user_data = toPost($login_data, '/login', null);
+            $user_data = toPost($login_data, '/login', null, true);
 
             if($user_data->status == 'ok'){
                 $this->setUserMethod($user_data);
@@ -49,6 +50,23 @@ class User extends BaseController{
     public function logout(){
         session()->destroy();
         return redirect()->to(base_url().'/');
+    }
+
+    public function editar(){
+        $data = json_encode([
+            'bio' => $this->request->getVar('bio'),
+            'habilidades' => $this->request->getVar('habilidades'),
+            'biografia' => $this->request->getVar('biografia'),
+            'website' => $this->request->getVar('website'),
+            'instagram' => $this->request->getVar('instagram'),
+            'youtube' => $this->request->getVar('youtube'),
+            'facebook' => $this->request->getVar('facebook'),
+            'email' => session()->get('email')
+        ]);
+
+        $res = toPut($data,'/user/'.session()->get('id'), session()->get('access_token'));
+        $this->session->setFlashdata('mensagem', $res->mensagem);
+        return redirect()->to(base_url('home'));
     }
 
     private function setUserMethod($user_data){
