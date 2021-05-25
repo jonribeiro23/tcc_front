@@ -17,7 +17,6 @@ class User extends BaseController{
 
         $rules = [
             'email' 		=> 'required|valid_email',
-//            'senha' 		=> 'required|min_length[8]|max_length[255]',
             'senha' 		=> 'required'
         ];
 
@@ -32,7 +31,7 @@ class User extends BaseController{
         }else{
             $login_data = json_encode([
                 'email' => $this->request->getVar('email'),
-                'senha' => $this->request->getVar('senha')
+                'senha' => hash('gost', $this->request->getVar('senha'))
             ]);
 
             $user_data = toPost($login_data, '/login', null);
@@ -42,9 +41,14 @@ class User extends BaseController{
                 return redirect()->to(base_url('home'));
             }
 
-            $this->session->setFlashdata('erro', $user_data->mensagem);
+            $this->session->setFlashdata('mensagem', $user_data->message);
             return redirect()->to('/');
         }
+    }
+
+    public function logout(){
+        session()->destroy();
+        return redirect()->to(base_url().'/');
     }
 
     private function setUserMethod($user_data){

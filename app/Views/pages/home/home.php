@@ -39,9 +39,9 @@
                                 <!-- Banner Content End -->
                             </div>
 
-                            <?php if(isset($session->erro)): ?>
+                            <?php if(isset($session->mensagem)): ?>
                             <div class="widget">
-                                <h3><?= $session->erro ?></h3>
+                                <h3><?= $session->mensagem ?></h3>
                             </div>
                             <?php endif ?>
 

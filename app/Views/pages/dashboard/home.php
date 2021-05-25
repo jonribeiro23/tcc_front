@@ -12,15 +12,16 @@
             </div>
 
             <div class="cover--user-name">
-                <h2 class="h3 fw--600">Eileen K. Ruiz</h2>
-            </div>
-
-            <div class="cover--user-activity">
-                <p><i class="fa mr--8 fa-clock-o"></i>Active 1 year 9 monts ago</p>
+                <h2 class="h3 fw--600"><?= session()->get('nome') ?></h2>
             </div>
 
             <div class="cover--user-desc fw--400 fs--18 fstyle--i text-darkest">
-                <p>Hello everyone ! There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                <p>Escreva uma mensagem ou uma frase aqui.</p>
+                <a href="#bio" data-toggle="modal" data-overlay="0.1">
+                    <small class="btn btn-animate">
+                        Editar
+                    </small>
+                </a>
             </div>
         </div>
     </div>
@@ -31,28 +32,23 @@
         <div class="container">
             <div class="row">
                 <!-- Main Content Start -->
-                <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
+                <div class="main--content col-md-12 pb--60" data-trigger="stickyScroll">
                     <div class="main--content-inner drop--shadow">
-                        <!-- Content Nav Start -->
-                        <div class="content--nav pb--30">
-                            <ul class="nav ff--primary fs--14 fw--500 bg-lighter">
-                                <li><a href="member-activity-personal.html">Activity</a></li>
-                                <li class="active"><a href="member-profile.html">Profile</a></li>
-                                <li><a href="member-friends.html">Friends</a></li>
-                                <li><a href="member-groups.html">Groups</a></li>
-                                <li><a href="member-forum-topics.html">Forum</a></li>
-                                <li><a href="member-media-all.html">Media</a></li>
-                            </ul>
-                        </div>
-                        <!-- Content Nav End -->
+
+                        <?= view('templates/submenu')?>
 
                         <!-- Profile Details Start -->
                         <div class="profile--details fs--14">
                             <!-- Profile Item Start -->
                             <div class="profile--item">
                                 <div class="profile--heading">
+                                    <a href="#sobreMim" data-toggle="modal" data-overlay="0.1">
+                                        <small class="btn btn-animate">
+                                            Editar
+                                        </small>
+                                    </a>
                                     <h3 class="h4 fw--700">
-                                        <span class="mr--4">About Me</span>
+                                        <span class="mr--4">Sobre mim</span>
                                         <i class="ml--10 text-primary fa fa-caret-right"></i>
                                     </h3>
                                 </div>
@@ -60,16 +56,8 @@
                                 <div class="profile--info">
                                     <table class="table">
                                         <tr>
-                                            <th class="fw--700 text-darkest">Full Name</th>
-                                            <td><a href="#" class="btn-link">Eileen K. Ruiz</a></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="fw--700 text-darkest">Skill</th>
+                                            <th class="fw--700 text-darkest">Principais habilidades</th>
                                             <td>Graphic Design, Font-End Development, Web Development</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="fw--700 text-darkest">Date of Birth</th>
-                                            <td>19<sup>th</sup> January 2017</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -79,8 +67,13 @@
                             <!-- Profile Item Start -->
                             <div class="profile--item">
                                 <div class="profile--heading">
+                                    <a href="#biografia" data-toggle="modal" data-overlay="0.1">
+                                        <small class="btn btn-animate">
+                                            Editar
+                                        </small>
+                                    </a>
                                     <h3 class="h4 fw--700">
-                                        <span class="mr--4">Biography</span>
+                                        <span class="mr--4">Biografia</span>
                                         <i class="ml--10 text-primary fa fa-caret-right"></i>
                                     </h3>
                                 </div>
@@ -94,57 +87,19 @@
                             <!-- Profile Item Start -->
                             <div class="profile--item">
                                 <div class="profile--heading">
+                                    <a href="#contato" data-toggle="modal" data-overlay="0.1">
+                                        <small class="btn btn-animate">
+                                            Editar
+                                        </small>
+                                    </a>
                                     <h3 class="h4 fw--700">
-                                        <span class="mr--4">Work Experience</span>
-                                        <i class="ml--10 text-primary fa fa-caret-right"></i>
-                                    </h3>
-                                </div>
-
-                                <div class="profile--info">
-                                    <dl>
-                                        <dt>
-                                            <p class="h6 fw--700 text-darkest">Graphic Designer 2010 - 2012</p>
-                                            <p><small class="fw--400 fs--12 text-darker">Graphicriver.net at Sydney</small></p>
-                                        </dt>
-                                        <dd>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour which don't look even slightly believable.</p>
-                                        </dd>
-
-                                        <dt>
-                                            <p class="h6 fw--700 text-darkest">Font-End Developer 2012 - 2014</p>
-                                            <p><small class="fw--400 fs--12 text-darker">Themeforest.net at Australia</small></p>
-                                        </dt>
-                                        <dd>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour which don't look even slightly believable.</p>
-                                        </dd>
-
-                                        <dt>
-                                            <p class="h6 fw--700 text-darkest">Web Developer 2014 - Still Now</p>
-                                            <p><small class="fw--400 fs--12 text-darker">Codecanyon.net at Sydney</small></p>
-                                        </dt>
-                                        <dd>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour which don't look even slightly believable.</p>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                            <!-- Profile Item End -->
-
-                            <!-- Profile Item Start -->
-                            <div class="profile--item">
-                                <div class="profile--heading">
-                                    <h3 class="h4 fw--700">
-                                        <span class="mr--4">Contact</span>
+                                        <span class="mr--4">Contato</span>
                                         <i class="ml--10 text-primary fa fa-caret-right"></i>
                                     </h3>
                                 </div>
 
                                 <div class="profile--info">
                                     <table class="table">
-                                        <tr>
-                                            <th class="fw--700 text-darkest">Phone</th>
-                                            <td><a href="tel:+16105598246">+1610-559-8246</a></td>
-                                        </tr>
                                         <tr>
                                             <th class="fw--700 text-darkest">E-mail</th>
                                             <td><a href="mailto:demo@fakemail.com">demo@example.com</a></td>
@@ -154,8 +109,16 @@
                                             <td><a href="#">example.com</a></td>
                                         </tr>
                                         <tr>
-                                            <th class="fw--700 text-darkest">Address</th>
-                                            <td>123 Lorem St., California, United States</td>
+                                            <th class="fw--700 text-darkest">Instagram</th>
+                                            <td><a href="mailto:demo@fakemail.com">demo@example.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="fw--700 text-darkest">YouTube</th>
+                                            <td><a href="mailto:demo@fakemail.com">demo@example.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="fw--700 text-darkest">Facebook</th>
+                                            <td><a href="mailto:demo@fakemail.com">demo@example.com</a></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -167,178 +130,7 @@
                 </div>
                 <!-- Main Content End -->
 
-                <!-- Main Sidebar Start -->
-                <div class="main--sidebar col-md-4 pb--60" data-trigger="stickyScroll">
-                    <!-- Widget Start -->
-                    <div class="widget">
-                        <h2 class="h4 fw--700 widget--title">Find A Buddy</h2>
 
-                        <!-- Buddy Finder Widget Start -->
-                        <div class="buddy-finder--widget">
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-xs-6 col-xxs-12">
-                                        <div class="form-group">
-                                            <label>
-                                                <span class="text-darker ff--primary fw--500">I Am</span>
-
-                                                <select name="gender" class="form-control form-sm" data-trigger="selectmenu">
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                    <option value="other">Other</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-6 col-xxs-12">
-                                        <div class="form-group">
-                                            <label>
-                                                <span class="text-darker ff--primary fw--500">Looking For</span>
-
-                                                <select name="lookingfor" class="form-control form-sm" data-trigger="selectmenu">
-                                                    <option value="female">Female</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="other">Other</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-6 col-xxs-12">
-                                        <div class="form-group">
-                                            <label>
-                                                <span class="text-darker ff--primary fw--500">Age</span>
-
-                                                <select name="age" class="form-control form-sm" data-trigger="selectmenu">
-                                                    <option value="18to25">18 to 25</option>
-                                                    <option value="25to30">25 to 30</option>
-                                                    <option value="30to35">30 to 35</option>
-                                                    <option value="35to40">35 to 40</option>
-                                                    <option value="40plus">40+</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-6 col-xxs-12">
-                                        <div class="form-group">
-                                            <label>
-                                                <span class="text-darker ff--primary fw--500">City</span>
-
-                                                <select name="city" class="form-control form-sm" data-trigger="selectmenu">
-                                                    <option value="newyork">New York</option>
-                                                    <option value="California">California</option>
-                                                    <option value="Atlanta">Atlanta</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12">
-                                        <div class="form-group">
-                                            <label>
-                                                <span class="text-darker ff--primary fw--500">Filter Country</span>
-
-                                                <select name="city" class="form-control form-sm" data-trigger="selectmenu">
-                                                    <option value="unitedstates">United States</option>
-                                                    <option value="australia">Australia</option>
-                                                    <option value="turkey">Turkey</option>
-                                                    <option value="vietnam">Vietnam</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12">
-                                        <button type="submit" class="btn btn-primary">Search</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Buddy Finder Widget End -->
-                    </div>
-                    <!-- Widget End -->
-
-                    <!-- Widget Start -->
-                    <div class="widget">
-                        <h2 class="h4 fw--700 widget--title">Notice</h2>
-
-                        <!-- Text Widget Start -->
-                        <div class="text--widget">
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some  look even slightly believable.</p>
-                        </div>
-                        <!-- Text Widget End -->
-                    </div>
-                    <!-- Widget End -->
-
-                    <!-- Widget Start -->
-                    <div class="widget">
-                        <h2 class="h4 fw--700 widget--title">Forums</h2>
-
-                        <!-- Links Widget Start -->
-                        <div class="links--widget">
-                            <ul class="nav">
-                                <li><a href="sub-forums.html">User Interface Design<span>(12)</span></a></li>
-                                <li><a href="sub-forums.html">Front-End Engineering<span>(07)</span></a></li>
-                                <li><a href="sub-forums.html">Web Development<span>(37)</span></a></li>
-                                <li><a href="sub-forums.html">Social Media Marketing<span>(13)</span></a></li>
-                                <li><a href="sub-forums.html">Content Marketing<span>(28)</span></a></li>
-                            </ul>
-                        </div>
-                        <!-- Links Widget End -->
-                    </div>
-                    <!-- Widget End -->
-
-                    <!-- Widget Start -->
-                    <div class="widget">
-                        <h2 class="h4 fw--700 widget--title">Archives</h2>
-
-                        <!-- Nav Widget Start -->
-                        <div class="nav--widget">
-                            <ul class="nav">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-calendar-o"></i>
-                                        <span class="text">Jan - July 2017</span>
-                                        <span class="count">(86)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-calendar-o"></i>
-                                        <span class="text">Jan - Dce 2016</span>
-                                        <span class="count">(328)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-calendar-o"></i>
-                                        <span class="text">Jan - Dec 2015</span>
-                                        <span class="count">(427)</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Nav Widget End -->
-                    </div>
-                    <!-- Widget End -->
-
-                    <!-- Widget Start -->
-                    <div class="widget">
-                        <h2 class="h4 fw--700 widget--title">Advertisements</h2>
-
-                        <!-- Ad Widget Start -->
-                        <div class="ad--widget">
-                            <a href="#">
-                                <img src="<?= base_url('public/assets/img/widgets-img/ad.jpg') ?>" alt="" class="center-block">
-                            </a>
-                        </div>
-                        <!-- Ad Widget End -->
-                    </div>
-                    <!-- Widget End -->
-                </div>
-                <!-- Main Sidebar End -->
             </div>
         </div>
     </section>
@@ -640,6 +432,10 @@
     <!-- Footer Section End -->
 </div>
 <!-- Wrapper End -->
+
+<!--Modal-->
+<?= view('templates/edit_modal')?>
+<!--Modal End-->
 
 <!-- Back To Top Button Start -->
 <div id="backToTop">

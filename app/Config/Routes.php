@@ -40,18 +40,19 @@ $routes->get('/', 'Home::index');
 $routes->get('about-us', 'Home::aboutUs');
 $routes->get('faq', 'Home::faq');
 $routes->get('contact', 'Home::contact');
-$routes->get('cadastrar', 'Home::subscribe');
+$routes->match(['get', 'post'], 'cadastrar', 'Home::subscribe');
 
 //User
 $routes->post('logar', 'User::login');
+$routes->get('logout', 'User::logout');
 
 //Dashboard
-$routes->get('/home', 'Dashboard::index');
-$routes->get('/friends', 'Dashboard::friends');
+$routes->get('/home', 'Dashboard::index', ['filter' => 'auth']);
+$routes->get('/friends', 'Dashboard::friends', ['filter' => 'auth']);
 
 //Courses
-$routes->get('/courses', 'Courses::courses');
-$routes->get('/courses/classes', 'Courses::classes');
+$routes->get('/courses', 'Courses::courses', ['filter' => 'auth']);
+$routes->get('/courses/classes', 'Courses::classes', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

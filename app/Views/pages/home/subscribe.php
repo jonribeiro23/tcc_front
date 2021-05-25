@@ -41,12 +41,19 @@
 
                             <div class="col-md-4 col-md-offset-1 col-xs-8 col-xs-offset-2 col-xxs-12">
                                 <!-- Widget Start -->
+
+                                <?php if(isset($validation)): ?>
+                                    <div class="widget">
+                                        <?= $validation->listErrors() ?>
+                                    </div>
+                                <?php endif ?>
+
                                 <div class="widget">
                                     <h2 class="h4 fw--700 widget--title">Cadastrar</h2>
 
                                     <!-- Buddy Finder Widget Start -->
                                     <div class="buddy-finder--widget">
-                                        <form action="#">
+                                        <form action="<?= base_url('cadastrar') ?>" method="post">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -54,7 +61,7 @@
                                                             <span class="text-darker ff--primary fw--500">Nome</span>
                                                         </label>
 
-                                                        <input class="form-control form-sm" type="text" name="nome" id="nome">
+                                                        <input class="form-control form-sm" type="text" name="nome" id="nome" required>
                                                     </div>
                                                 </div>
 
@@ -64,7 +71,7 @@
                                                             <span class="text-darker ff--primary fw--500">Sobrenome</span>
                                                         </label>
 
-                                                        <input class="form-control form-sm" type="text" name="sobrenome" id="sobrenome">
+                                                        <input class="form-control form-sm" type="text" name="sobrenome" id="sobrenome" required>
                                                     </div>
                                                 </div>
 
@@ -74,7 +81,7 @@
                                                             <span class="text-darker ff--primary fw--500">Email</span>
                                                         </label>
 
-                                                        <input class="form-control form-sm" type="email" name="email" id="email">
+                                                        <input class="form-control form-sm" type="email" name="email" id="email" required>
                                                     </div>
                                                 </div>
 
@@ -83,7 +90,7 @@
                                                         <label for="senha">
                                                             <span class="text-darker ff--primary fw--500">Senha</span>
                                                         </label>
-                                                        <input class="form-control form-sm" type="password" name="senha" id="senha">
+                                                        <input class="form-control form-sm" type="password" name="senha" id="senha" required>
                                                     </div>
                                                 </div>
 
@@ -92,16 +99,21 @@
                                                         <label for="csenha">
                                                             <span class="text-darker ff--primary fw--500">Confirmar Senha</span>
                                                         </label>
-                                                        <input class="form-control form-sm" type="password" name="csenha" id="csenha">
+                                                        <input class="form-control form-sm" type="password" name="csenha" id="csenha" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="senha">
-                                                            <span class="text-darker ff--primary fw--500">Apresentação</span>
+                                                        <label>
+                                                            <span class="text-darker ff--primary fw--500">Eu sou</span>
+
+                                                            <select name="sexo" class="form-control form-sm" data-trigger="selectmenu">
+                                                                <option value="homem">Homem</option>
+                                                                <option value="mulher">Mulher</option>
+                                                                <option value="outro">Outro</option>
+                                                            </select>
                                                         </label>
-                                                        <textarea class="form-control form-sm" name="apresentacao" id="apresentacao" cols="30" rows="10"></textarea>
                                                     </div>
                                                 </div>
 
