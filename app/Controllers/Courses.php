@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use function App\Helpers\toGet;
 use function App\Helpers\toPost;
 
 class Courses extends BaseController{
@@ -12,8 +13,14 @@ class Courses extends BaseController{
 	}
 
 	public function courses(){
+	    $cursos = toGet('/course', session()->get('access_token'));
+	    if(!$cursos){
+	        return redirect()->to(base_url().'/logout');
+        }
+	    $data['cursos'] = $cursos->courses;
+
         echo view('templates/header');
-        echo view('pages/courses/courses');
+        echo view('pages/courses/courses', $data);
         echo view('templates/footer_scripts');
     }
 
@@ -43,5 +50,26 @@ class Courses extends BaseController{
             $this->session->setFlashdata('mensagem', $res->message);
             return redirect()->to(base_url('cursos'));
         }
+    }
+
+    public function getCurso($id){
+	    $data_id = json_encode([
+	        'id_curso' => $id
+        ]);
+
+	    $res = toPost($data_id, 'list-courses', session()->get('access_token'));
+        if(!$res){
+            return redirect()->to(base_url().'/logout');
+        }
+
+        $data['curso'] = $res->courses;
+
+//        echo '<pre>';
+//        var_dump($data);
+//        die();
+
+        echo view('templates/header');
+        echo view('pages/courses/classes', $data);
+        echo view('templates/footer_scripts');
     }
 }

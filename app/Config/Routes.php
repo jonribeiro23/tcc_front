@@ -53,7 +53,8 @@ $routes->get('friends', 'Dashboard::friends', ['filter' => 'auth']);
 
 //Courses
 $routes->get('cursos', 'Courses::courses', ['filter' => 'auth']);
-$routes->get('cursos/aulas', 'Courses::classes', ['filter' => 'auth']);
+$routes->get('curso/aulas', 'Courses::classes', ['filter' => 'auth']);
+$routes->get('curso/(:any)', 'Courses::getCurso/$1', ['filter' => 'auth']);
 $routes->post('criar-curso', 'Courses::criarCurso', ['filter' => 'auth']);
 
 /*

@@ -32,7 +32,7 @@ function toPost($to_send, $url, $token, $login=false){
     if (gereciarResposta($info['http_code']) && $res != null){
         return json_decode($res);
     }
-    return logout();
+    logout();
 }
 
 function toGet($url, $token){
@@ -51,7 +51,7 @@ function toGet($url, $token){
     if (gereciarResposta($info['http_code']) && $res != null){
         return json_decode($res);
     }
-    return logout();
+    logout();
 }
 
 function toPut($toSend, $url, $token){
@@ -76,7 +76,7 @@ function toPut($toSend, $url, $token){
     if (gereciarResposta($info['http_code']) && $res != null){
         return json_decode($res);
     }
-    return logout();
+    logout();
 }
 
 function toDelete($url, $token){
@@ -118,5 +118,5 @@ function gereciarResposta($resposta){
 }
 
 function logout(){
-    return redirect()->to(base_url().'logout');
+    redirect()->to(base_url().'/logout');
 }
