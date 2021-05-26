@@ -32,7 +32,7 @@ function toPost($to_send, $url, $token, $login=false){
     if (gereciarResposta($info['http_code']) && $res != null){
         return json_decode($res);
     }
-    logout();
+    return logout();
 }
 
 function toGet($url, $token){
@@ -51,7 +51,7 @@ function toGet($url, $token){
     if (gereciarResposta($info['http_code']) && $res != null){
         return json_decode($res);
     }
-    logout();
+    return logout();
 }
 
 function toPut($toSend, $url, $token){
@@ -76,7 +76,26 @@ function toPut($toSend, $url, $token){
     if (gereciarResposta($info['http_code']) && $res != null){
         return json_decode($res);
     }
-//    logout();
+    return logout();
+}
+
+function toDelete($url, $token){
+    $ch = curl_init(URL_LOCAL.$url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+    curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, 'DELETE' );
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Authorization:'.'Bearer '.$token
+    ));
+
+    $res = curl_exec($ch);
+    $info = curl_getinfo($ch);
+    curl_close($ch);
+    if (gereciarResposta($info['http_code'])){
+        return json_decode($res);
+    }
+    logout();
 }
 
 function gereciarResposta($resposta){
@@ -92,10 +111,12 @@ function gereciarResposta($resposta){
         case 405: // Method Not Allowed
         case 500: // Internal Server Error
             return false;
+
+        default:
+            return false;
     }
 }
 
 function logout(){
-    session()->destroy();
-    return redirect()->to(base_url().'/');
+    return redirect()->to(base_url().'logout');
 }

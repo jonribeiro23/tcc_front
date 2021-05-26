@@ -45,15 +45,16 @@ $routes->match(['get', 'post'], 'cadastrar', 'Home::subscribe');
 //User
 $routes->post('logar', 'User::login');
 $routes->get('logout', 'User::logout');
-$routes->post('/editar-dados', 'User::editar', ['filter' => 'auth']);
+$routes->post('editar-dados', 'User::editar', ['filter' => 'auth']);
 
 //Dashboard
-$routes->get('/home', 'Dashboard::index', ['filter' => 'auth']);
-$routes->get('/friends', 'Dashboard::friends', ['filter' => 'auth']);
+$routes->get('home', 'Dashboard::index', ['filter' => 'auth']);
+$routes->get('friends', 'Dashboard::friends', ['filter' => 'auth']);
 
 //Courses
-$routes->get('/courses', 'Courses::courses', ['filter' => 'auth']);
-$routes->get('/courses/classes', 'Courses::classes', ['filter' => 'auth']);
+$routes->get('cursos', 'Courses::courses', ['filter' => 'auth']);
+$routes->get('cursos/aulas', 'Courses::classes', ['filter' => 'auth']);
+$routes->post('criar-curso', 'Courses::criarCurso', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------
