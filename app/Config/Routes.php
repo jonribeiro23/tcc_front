@@ -56,6 +56,7 @@ $routes->get('cursos', 'Courses::courses', ['filter' => 'auth']);
 $routes->get('curso/aulas', 'Courses::classes', ['filter' => 'auth']);
 $routes->get('curso/(:any)', 'Courses::getCurso/$1', ['filter' => 'auth']);
 $routes->post('criar-curso', 'Courses::criarCurso', ['filter' => 'auth']);
+$routes->post('criar-aula/(:any)', 'Courses::criarAula/$1', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

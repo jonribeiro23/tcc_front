@@ -1,3 +1,4 @@
+<?php $session = \Config\Services::session(); ?>
 <!-- Preloader Start -->
 <div id="preloader">
     <div class="preloader--inner"></div>
@@ -9,10 +10,19 @@
     <div class="container">
         <?php if (isset($curso)): ?>
         <h3><?= $curso[0]->nome_curso ?></h3>
+        <pre>
+            <?php var_dump($curso[0]->aulas); ?>
+        </pre>
 
         <div class="cover--user-desc fw--400 fs--18 fstyle--i text-darkest">
             <p><?= $curso[0]->descricao ?></p>
         </div>
+        <?php endif ?>
+
+        <?php if(isset($session->mensagem)): ?>
+            <div class="widget">
+                <h3><?= $session->mensagem ?></h3>
+            </div>
         <?php endif ?>
     </div>
 </div>
@@ -66,19 +76,30 @@
                     </div>
                     <!-- Gallery Header End -->
 
-                    <?php if (isset($curso->aulas)): ?>
+                    <?php if (isset($curso[0]->aulas)): ?>
                     <!-- Gallery Items Start -->
                     <div class="gallery--items">
                         <div class="row gutter--15 AdjustRow">
-                            <?php if($curso->aulas): ?>
-                                <?php foreach ($curso->aulas as $aula): ?>
+                            <?php if($curso[0]->aulas): ?>
+                                <?php foreach ($curso[0]->aulas as $aula): ?>
                                     <div class="col-sm-3 col-xs-4 col-xxs-6 pt--15">
                                         <!-- Gallery Item Start -->
-                                        <div class="gallery--item type--photo">
-                                            <a href="#mediaImgModal" data-toggle="modal" data-overlay="0.1">
-                                                <img src="<?= base_url('public/assets/img/gallery-img/thumb-01.jpg') ?>" alt="">
-                                                <h4></h4>
-                                            </a>
+                                        <div class="box--item text-center pt--20 pb--20 ">
+<!--                                            <img src="--><?//= base_url('public/assets/img/gallery-img/thumb-01.jpg') ?><!--" alt="">-->
+
+                                            <div class="title">
+                                                <h2 class="h6"><?= $aula->nome_aula ?></h2>
+                                            </div>
+
+                                            <div class="desc text-darker">
+                                                <p><?= $aula->descricao_aula ?>></p>
+                                            </div>
+
+                                            <div class="action">
+                                                <a href="#mediaVideoModal" data-toggle="modal" data-overlay="0.1" onclick="getVideo('<?= $aula->link_aula ?>')">
+                                                    <button class="btn btn-apple">Assistir<i class="fa ml--10 fa-caret-right"></i></button>
+                                                </a>
+                                            </div>
                                         </div>
                                         <!-- Gallery Item End -->
                                     </div>
@@ -117,4 +138,4 @@
 </div>
 <!-- Back To Top Button End -->
 
-<?= view('templates/create_class_modal') ?>
+<?= view('templates/watch_class_modal') ?>

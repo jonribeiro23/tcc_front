@@ -52,6 +52,29 @@ class Courses extends BaseController{
         }
     }
 
+    public function criarAula($id){
+        $rules = [
+            'nome' 		=> 'required',
+            'descricao' => 'required',
+            'link'      => 'required'
+        ];
+
+        if(!$this->validate($rules)){
+            $data['validation'] = $this->validator;
+        }else{
+            $data = json_encode([
+                'nome_aula' => $this->request->getVar('nome'),
+                'descricao_aula' => $this->request->getVar('descricao'),
+                'link_aula' => $this->request->getVar('link')
+            ]);
+
+            $res = toPost($data, '/classes/'.$id, session()->get('access_token'));
+
+            $this->session->setFlashdata('mensagem', $res->message);
+            return redirect()->to(base_url('curso').'/'.$id);
+        }
+    }
+
     public function getCurso($id){
 	    $data_id = json_encode([
 	        'id_curso' => $id
@@ -63,10 +86,6 @@ class Courses extends BaseController{
         }
 
         $data['curso'] = $res->courses;
-
-//        echo '<pre>';
-//        var_dump($data);
-//        die();
 
         echo view('templates/header');
         echo view('pages/courses/classes', $data);

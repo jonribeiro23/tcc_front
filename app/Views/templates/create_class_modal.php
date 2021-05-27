@@ -1,10 +1,11 @@
+<?php $uri = service('uri'); ?>
 <!-- Modal Bio Start -->
 <div class="media--modal type--img modal fade" id="aula">
     <div class="modal-dialog">
         <div class="row gutter--0">
             <div class="col-md-2"></div>
             <div class="col-md-8 mb--15">
-                <form action="<?= base_url('criar-aula') ?>" method="post">
+                <form action="<?= base_url('criar-aula').'/'.$uri->getSegment(2) ?>" method="post">
                     <h3>Cadastrar aula</h3>
                     <div class="col-xs-12 col-xxs-12">
                         <div class="form-group">
