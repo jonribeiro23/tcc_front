@@ -96,7 +96,7 @@
                                             </div>
 
                                             <div class="action">
-                                                <a href="#mediaVideoModal" data-toggle="modal" data-overlay="0.1" onclick="getVideo('<?= $aula->link_aula ?>')">
+                                                <a href="#assistir" data-toggle="modal" data-overlay="0.1" onclick="getVideo('<?= $aula->link_aula ?>')">
                                                     <button class="btn btn-apple">Assistir<i class="fa ml--10 fa-caret-right"></i></button>
                                                 </a>
                                             </div>
@@ -138,4 +138,6 @@
 </div>
 <!-- Back To Top Button End -->
 
+<?= view('templates/create_class_modal') ?>
 <?= view('templates/watch_class_modal') ?>
+<script src="<?= base_url('public/assets/js/modal-curso.js') ?>"></script>

@@ -1,5 +1,5 @@
 <!-- Media Modal Start -->
-<div class="media--modal type--video modal fade" id="mediaVideoModal">
+<div class="media--modal type--video modal fade" id="assistir">
     <div class="modal-dialog">
         <div class="row gutter--0">
             <div class="col-md-8">

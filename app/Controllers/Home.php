@@ -32,6 +32,8 @@ class Home extends BaseController
     }
 
     public function subscribe(){
+	    //TODO
+        // traduzir mensagens
         helper(['form', 'requests']);
         $data = [];
 

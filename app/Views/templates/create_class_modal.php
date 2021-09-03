@@ -1,5 +1,5 @@
 <?php $uri = service('uri'); ?>
-<!-- Modal Bio Start -->
+<!-- Modal Aula -->
 <div class="media--modal type--img modal fade" id="aula">
     <div class="modal-dialog">
         <div class="row gutter--0">

@@ -13,6 +13,8 @@ class User extends BaseController{
         $this->session = \Config\Services::session();
     }
 	public function login(){
+        //TODO
+        // Testar login sem a senha
         helper(['form']);
         $data = [];
 
