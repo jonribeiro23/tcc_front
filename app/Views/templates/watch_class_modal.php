@@ -51,15 +51,28 @@
                     </div>
                     <!-- Media Meta End -->
 
+                    <div class="media--comments">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <h5>Comentar</h5>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Message *" class="form-control" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary mt--10">Send Message</button>
+                        </div>
+                    </div>
+
                     <!-- Media Comments Start -->
                     <div class="media--comments">
+
                         <!-- Media Comment Start -->
                         <div class="media--comment">
                             <!-- Media Author Start -->
                             <div class="media--author clearfix">
-                                <div class="media--avatar float--left" data-overlay="0.3" data-overlay-color="primary">
-                                    <img src="img/activity-img/avatar-02.jpg" alt="">
-                                </div>
 
                                 <div class="media--author-info ov--h">
                                     <p class="name"><a href="#" class="btn-link">Samantha B. Beatty</a> Replied</p>
@@ -124,6 +137,7 @@
                         <!-- Media Comment End -->
                     </div>
                     <!-- Media Comments End -->
+
 
                     <!-- Media All Comments Start -->
                     <div class="media--all-comments text-center">
