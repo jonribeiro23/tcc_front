@@ -91,4 +91,13 @@ class Courses extends BaseController{
         echo view('pages/courses/classes', $data);
         echo view('templates/footer_scripts');
     }
+
+    public function postComment($courseId){
+        $data = file_get_contents('php://input');
+
+        $res = toPost($data, '/comment', session()->get('access_token'));
+        $res = json_encode($res);
+        echo $res;
+
+    }
 }

@@ -58,6 +58,8 @@ $routes->get('curso/(:any)', 'Courses::getCurso/$1', ['filter' => 'auth']);
 $routes->post('criar-curso', 'Courses::criarCurso', ['filter' => 'auth']);
 $routes->post('criar-aula/(:any)', 'Courses::criarAula/$1', ['filter' => 'auth']);
 
+$routes->post('comment/(:any)', 'Courses::postComment/$1', ['filter' => 'auth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

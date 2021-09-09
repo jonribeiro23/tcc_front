@@ -51,18 +51,20 @@
                     </div>
                     <!-- Media Meta End -->
 
+                    <?php $uri = service('uri'); ?>
                     <div class="media--comments">
                         <div class="col-xs-12">
                             <div class="form-group">
                                 <h5>Comentar</h5>
                             </div>
                             <div class="form-group">
-                                <textarea name="message" placeholder="Message *" class="form-control" required></textarea>
+                                <input id="class_id" type="hidden", value="">
+                                <textarea id="comment_id" name="message" placeholder="Insira seu comentário aqui" class="form-control" required></textarea>
                             </div>
                         </div>
 
                         <div class="col-xs-12">
-                            <button type="submit" class="btn btn-primary mt--10">Send Message</button>
+                            <button type="button" class="btn btn-primary mt--10" onclick="postComment('<?= $uri->getSegment(2) ?>')">Publicar</button>
                         </div>
                     </div>
 

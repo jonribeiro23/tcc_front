@@ -79,6 +79,9 @@
                     <?php if (isset($curso[0]->aulas)): ?>
                     <!-- Gallery Items Start -->
                     <div class="gallery--items">
+                        <pre>
+                            <?= var_dump($curso[0]) ?>
+                        </pre>
                         <div class="row gutter--15 AdjustRow">
                             <?php if($curso[0]->aulas): ?>
                                 <?php foreach ($curso[0]->aulas as $aula): ?>
@@ -96,7 +99,7 @@
                                             </div>
 
                                             <div class="action">
-                                                <a href="#assistir" data-toggle="modal" data-overlay="0.1" onclick="getVideo('<?= $aula->link_aula ?>')">
+                                                <a href="#assistir" data-toggle="modal" data-overlay="0.1" onclick="getVideo('<?= $aula->link_aula ?>', '<?= $aula->id_aula ?>')">
                                                     <button class="btn btn-apple">Assistir<i class="fa ml--10 fa-caret-right"></i></button>
                                                 </a>
                                             </div>
