@@ -98,8 +98,9 @@
                                                 <p><?= $aula->descricao_aula ?>></p>
                                             </div>
 
+                                            <?php $uri = service('uri'); ?>
                                             <div class="action">
-                                                <a href="#assistir" data-toggle="modal" data-overlay="0.1" onclick="getVideo('<?= $aula->link_aula ?>', '<?= $aula->id_aula ?>')">
+                                                <a href="#assistir" data-toggle="modal" data-overlay="0.1" onclick="getVideo('<?= $aula->link_aula ?>', '<?= $aula->id_aula ?>', '<?= $uri->getSegment(2) ?>')">
                                                     <button class="btn btn-apple">Assistir<i class="fa ml--10 fa-caret-right"></i></button>
                                                 </a>
                                             </div>

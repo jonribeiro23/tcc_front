@@ -92,6 +92,20 @@ class Courses extends BaseController{
         echo view('templates/footer_scripts');
     }
 
+    public function getComment(){
+        $data = file_get_contents('php://input');
+
+//        $data = json_encode([
+//            'id_curso' => '6132949dcf7b8d0f430c096f',
+//            'id_aula' => '0x4d9d9b74c642a524'
+//        ]);
+//        echo session()->get('access_token');
+//        die();
+        $res = toPost($data, 'list-comment', session()->get('access_token'));
+        $res = json_encode($res);
+        echo $res;
+    }
+
     public function postComment($courseId){
         $data = file_get_contents('php://input');
 

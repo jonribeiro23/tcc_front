@@ -35,15 +35,17 @@ function toPost($to_send, $url, $token, $login=false){
     logout();
 }
 
-function toGet($url, $token){
+function toGet($url, $token, $data = null){
     $ch = curl_init(URL_LOCAL.$url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLINFO_HEADER_OUT, true);
     curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, 'GET' );
+
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'Content-Type: application/json',
         'Authorization:'.'Bearer '.$token
     ));
+
 
     $res = curl_exec($ch);
     $info = curl_getinfo($ch);

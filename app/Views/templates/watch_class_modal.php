@@ -69,7 +69,7 @@
                     </div>
 
                     <!-- Media Comments Start -->
-                    <div class="media--comments">
+                    <div id="boxComments" class="media--comments">
 
                         <!-- Media Comment Start -->
                         <div class="media--comment">
@@ -91,52 +91,6 @@
                         </div>
                         <!-- Media Comment End -->
 
-                        <!-- Media Comment Start -->
-                        <div class="media--comment">
-                            <!-- Media Author Start -->
-                            <div class="media--author clearfix">
-                                <div class="media--avatar float--left" data-overlay="0.3" data-overlay-color="primary">
-                                    <img src="img/activity-img/avatar-03.jpg" alt="">
-                                </div>
-
-                                <div class="media--author-info ov--h">
-                                    <p class="name"><a href="#" class="btn-link">Barbara E. Weiss</a> Replied</p>
-                                    <p class="date"><i class="mr--8 fa fa-clock-o"></i>Yeasterday at 08:20 am</p>
-
-                                    <!-- Media Comment Content Start -->
-                                    <div class="media--comment-content">
-                                        <p>Beautiful Photo...</p>
-                                        <p>Love It..... <span style="color: #ec407a"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span></p>
-                                    </div>
-                                    <!-- Media Comment Content End -->
-                                </div>
-                            </div>
-                            <!-- Media Author End -->
-                        </div>
-                        <!-- Media Comment End -->
-
-                        <!-- Media Comment Start -->
-                        <div class="media--comment">
-                            <!-- Media Author Start -->
-                            <div class="media--author clearfix">
-                                <div class="media--avatar float--left" data-overlay="0.3" data-overlay-color="primary">
-                                    <img src="img/activity-img/avatar-05.jpg" alt="">
-                                </div>
-
-                                <div class="media--author-info ov--h">
-                                    <p class="name"><a href="#" class="btn-link">Jeannette J. White</a> Replied</p>
-                                    <p class="date"><i class="mr--8 fa fa-clock-o"></i>Yeasterday at 08:20 am</p>
-
-                                    <!-- Media Comment Content Start -->
-                                    <div class="media--comment-content">
-                                        <p>So cute</p>
-                                    </div>
-                                    <!-- Media Comment Content End -->
-                                </div>
-                            </div>
-                            <!-- Media Author End -->
-                        </div>
-                        <!-- Media Comment End -->
                     </div>
                     <!-- Media Comments End -->
 
