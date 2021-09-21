@@ -10,9 +10,6 @@
     <div class="container">
         <?php if (isset($curso)): ?>
         <h3><?= $curso[0]->nome_curso ?></h3>
-        <pre>
-            <?php var_dump($curso[0]->aulas); ?>
-        </pre>
 
         <div class="cover--user-desc fw--400 fs--18 fstyle--i text-darkest">
             <p><?= $curso[0]->descricao ?></p>
@@ -79,9 +76,6 @@
                     <?php if (isset($curso[0]->aulas)): ?>
                     <!-- Gallery Items Start -->
                     <div class="gallery--items">
-                        <pre>
-                            <?= var_dump($curso[0]) ?>
-                        </pre>
                         <div class="row gutter--15 AdjustRow">
                             <?php if($curso[0]->aulas): ?>
                                 <?php foreach ($curso[0]->aulas as $aula): ?>

@@ -46,13 +46,14 @@ function putCommentOnPage(data){
     })
 }
 
+//TODO - Logout if user was not logged
 async function getComment(idCurso, idAula){
     let data = JSON.stringify({
         id_curso: idCurso,
         id_aula: idAula,
     })
 
-    // let url = 'https://'+location.hostname + '/comment/' + idCurso
+    // let url = 'https://'+location.hostname + '/get-comment'
     let url = 'http://localhost:8080/get-comment'
 
     let myHeaders = new Headers();
@@ -68,8 +69,9 @@ async function getComment(idCurso, idAula){
     fetch(myRequest)
         .then(response => response.json())
         .then(data => {
-            console.log(data.data)
-            putCommentOnPage(data.data)
+            const gambi = [{_id: '', comentario: '', nome_usuario: '', id_usuario: ''}]
+            let newData = gambi.concat(data.data)
+            putCommentOnPage(newData)
         })
         .catch(error => console.log(error))
 }
@@ -94,12 +96,12 @@ function getVideo(link, id_aula, idCurso){
 
 async function postComment(idCurso){
     let class_id = document.querySelector('#class_id').value
-    let comment = document.querySelector('#comment_id').value
+    let comment = document.querySelector('#comment_id')
 
     let data = JSON.stringify({
         id_curso: idCurso,
         id_aula: class_id,
-        comentario: comment
+        comentario: comment.value
     })
 
     // let url = 'https://'+location.hostname + '/comment/' + idCurso
@@ -120,7 +122,8 @@ async function postComment(idCurso){
     .then(data => {
     //TODO
         //do I do something?
-        console.log(data)
+        comment.value = ''
+        getComment(idCurso, class_id)
     })
     .catch(error => console.log(error))
 
