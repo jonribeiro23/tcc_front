@@ -57,6 +57,7 @@ function toGet($url, $token, $data = null){
 }
 
 function toPut($toSend, $url, $token){
+
     $ch = curl_init(URL_LOCAL.$url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLINFO_HEADER_OUT, true);

@@ -8,7 +8,7 @@
                     <h3>Mensagem</h3>
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <textarea id="txtBio" name="habilidades" placeholder="Escreva uma mensagem *" class="form-control" required><?= isset($perfil)  ? $perfil->bio : '' ?></textarea>
+                            <textarea id="txtBio" name="bio" placeholder="Escreva uma mensagem *" class="form-control" required><?= isset($perfil)  ? $perfil->bio : '' ?></textarea>
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@
                     <h3>Biografia</h3>
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <textarea id="txtBiografia" name="habilidades" placeholder="Suas biografia *" class="form-control" required><?= isset($perfil)  ? $perfil->biografia : '' ?></textarea>
+                            <textarea id="txtBiografia" name="biografia" placeholder="Suas biografia *" class="form-control" required><?= isset($perfil)  ? $perfil->biografia : '' ?></textarea>
                         </div>
                     </div>
 

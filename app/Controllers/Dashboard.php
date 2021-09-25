@@ -14,6 +14,7 @@ class Dashboard extends BaseController{
 
         $data['perfil'] = toGet('/profile/'.session()->get('id'), session()->get('access_token'));
         $data['perfil'] = $data['perfil']->perfil[0];
+        //TODO - get bio from database
         echo view('templates/header');
         echo view('pages/dashboard/home', $data);
         echo view('templates/footer_scripts');
