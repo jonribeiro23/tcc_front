@@ -53,18 +53,13 @@
                                             Editar
                                         </small>
                                     </a>
-                                    <h3 class="h4 fw--700">
-                                        <span class="mr--4">Sobre mim</span>
+                                    <h3 class="h4 fw--700 mt--15">
+                                        <span class="mr--4">Minhas habilidades</span>
                                         <i class="ml--10 text-primary fa fa-caret-right"></i>
                                     </h3>
                                 </div>
                                 <div class="profile--info">
-                                    <table class="table">
-                                        <tr>
-                                            <th class="fw--700 text-darkest">Principais habilidades</th>
-                                            <td id="infoSobreMim"><?= isset($perfil)  ? $perfil->habilidades : '' ?></td>
-                                        </tr>
-                                    </table>
+                                    <p id="infoSobreMim"><?= isset($perfil)  ? $perfil->habilidades : '' ?></p>
                                 </div>
                             </div>
                             <!-- Profile Item End -->
@@ -77,7 +72,7 @@
                                             Editar
                                         </small>
                                     </a>
-                                    <h3 class="h4 fw--700">
+                                    <h3 class="h4 fw--700 mt--15">
                                         <span class="mr--4">Biografia</span>
                                         <i class="ml--10 text-primary fa fa-caret-right"></i>
                                     </h3>
@@ -97,7 +92,7 @@
                                             Editar
                                         </small>
                                     </a>
-                                    <h3 class="h4 fw--700">
+                                    <h3 class="h4 fw--700 mt--15">
                                         <span class="mr--4">Contato</span>
                                         <i class="ml--10 text-primary fa fa-caret-right"></i>
                                     </h3>

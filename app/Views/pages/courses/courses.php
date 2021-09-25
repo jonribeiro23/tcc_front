@@ -3,12 +3,12 @@
 <div class="page--header pt--60 pb--60 text-center" data-bg-img="<?= base_url('public/assets/img/page-header-img/bg.jpg') ?>" data-overlay="0.85">
     <div class="container">
         <div class="title">
-            <h2 class="h1 text-white">Groups</h2>
+            <h2 class="h1 text-white">Meus Cursos</h2>
         </div>
 
         <ul class="breadcrumb text-gray ff--primary">
             <li><a href="home-1.html" class="btn-link">Home</a></li>
-            <li class="active"><span class="text-primary">Groups</span></li>
+            <li class="active"><span class="text-primary">Meus Cursos</span></li>
         </ul>
     </div>
 </div>
@@ -33,9 +33,11 @@
                 <div class="main--content-inner">
                     <!-- Filter Nav Start -->
                     <div class="filter--nav pb--30 clearfix">
+                        <?php if(isset($cursos)): ?>
                         <div class="filter--link float--left">
-                            <h2 class="h4">All Groups : 25</h2>
+                            <h2 class="h4">Cursos : <?= count($cursos) ?></h2>
                         </div>
+                        <?php endif; ?>
 
                         <div class="filter--options float--right ml--10">
                             <a href="#curso" data-toggle="modal" data-overlay="0.1">
@@ -54,7 +56,7 @@
                                     <div class="col-md-3 col-xs-6 col-xxs-12">
                                         <!-- Box Item Start -->
                                         <div class="box--item text-center">
-                                            <a href="group-home.html" class="img" data-overlay="0.1">
+                                            <a href="<?= base_url('curso').'/'.$curso->id_curso ?>" class="img" data-overlay="0.1">
                                                 <img src="<?= base_url('public/assets/img/group-img/01.jpg') ?>" alt="">
                                             </a>
 
@@ -73,7 +75,7 @@
 <!--                                                </div>-->
 
                                                 <div class="desc text-darker">
-                                                    <p><?= $curso->descricao ?>></p>
+                                                    <p><?= $curso->descricao ?></p>
                                                 </div>
 
                                                 <div class="action">
@@ -92,17 +94,17 @@
                     <!-- Box Items End -->
 
                     <!-- Page Count Start -->
-                    <div class="page--count pt--30">
-                        <label class="ff--primary fs--14 fw--500 text-darker">
-                            <span>Viewing</span>
-
-                            <a href="#" class="btn-link"><i class="fa fa-caret-left"></i></a>
-                            <input type="number" name="page-count" value="01" class="form-control form-sm">
-                            <a href="#" class="btn-link"><i class="fa fa-caret-right"></i></a>
-
-                            <span>of 28</span>
-                        </label>
-                    </div>
+<!--                    <div class="page--count pt--30">-->
+<!--                        <label class="ff--primary fs--14 fw--500 text-darker">-->
+<!--                            <span>Viewing</span>-->
+<!---->
+<!--                            <a href="#" class="btn-link"><i class="fa fa-caret-left"></i></a>-->
+<!--                            <input type="number" name="page-count" value="01" class="form-control form-sm">-->
+<!--                            <a href="#" class="btn-link"><i class="fa fa-caret-right"></i></a>-->
+<!---->
+<!--                            <span>of 28</span>-->
+<!--                        </label>-->
+<!--                    </div>-->
                     <!-- Page Count End -->
                 </div>
             </div>
