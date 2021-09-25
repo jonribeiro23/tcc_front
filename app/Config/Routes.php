@@ -49,7 +49,9 @@ $routes->post('editar-dados', 'User::editar', ['filter' => 'auth']);
 
 //Dashboard
 $routes->get('home', 'Dashboard::index', ['filter' => 'auth']);
-$routes->get('friends', 'Dashboard::friends', ['filter' => 'auth']);
+$routes->get('pessoas', 'Dashboard::pessoas', ['filter' => 'auth']);
+$routes->get('amigos', 'Dashboard::friends', ['filter' => 'auth']);
+$routes->get('see-more/(:any)', 'Dashboard::seeMore/$1', ['filter' => 'auth']);
 
 //Courses
 $routes->get('cursos', 'Courses::courses', ['filter' => 'auth']);

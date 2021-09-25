@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use function App\Helpers\toGet;
+use function App\Helpers\toPost;
 
 class Dashboard extends BaseController{
     function __construct(){
@@ -20,9 +21,34 @@ class Dashboard extends BaseController{
         echo view('templates/footer_scripts');
     }
 
-    public function friends(){
+    public function pessoas(){
+
+        $data = toGet('users/0', session()->get('access_token'));
+        if(!$data){
+            return redirect()->to(base_url().'/logout');
+        }
+
+//        echo '<pre>';
+//        var_dump($data);
+//        die();
+
         echo view('templates/header');
-        echo view('pages/dashboard/friends');
+        echo view('pages/dashboard/people', [ 'data' => $data->users]);
         echo view('templates/footer_scripts');
+    }
+
+    public function seeMore($skip){
+
+        $data = toGet('users/'.$skip, session()->get('access_token'));
+        if(!$data){
+            return redirect()->to(base_url().'/logout');
+        }
+
+//        echo '<pre>';
+//        var_dump($data);
+//        die();
+
+        $res = json_encode($data);
+        echo $res;
     }
 }
