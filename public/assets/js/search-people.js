@@ -1,8 +1,15 @@
-function getAmount(){
-    return document.querySelectorAll('.member--item').length
+function cleanView(){
+    let row = document.querySelector('#rowOfPeople')
+    let cards = document.querySelectorAll('.cards-of-people')
+
+    if (cards) {
+        cards.forEach(item => row.removeChild(item))
+    }
 }
 
 function appendPeople(data){
+
+    cleanView()
 
     data.forEach(person => {
         let row = document.querySelector('#rowOfPeople')
@@ -20,7 +27,7 @@ function appendPeople(data){
         let aNewFriend = document.createElement('a')
         let i = document.createElement('i')
 
-        divCol.className = 'col-md-3 col-xs-6 col-xxs-12'
+        divCol.className = 'col-md-3 col-xs-6 col-xxs-12 cards-of-people'
         divMemberItem.className = 'member--item online'
         divImg.className = 'img img-circle'
         aImg.className = 'btn-link'
@@ -63,25 +70,29 @@ function appendPeople(data){
     })
 }
 
-function seeMore(){
-    // let url = 'https://'+location.hostname + '/get-comment'
-    let url = 'http://localhost:8080/see-more/' + getAmount()
+function ajaxSearch(){
+    let name = document.querySelector('#searchPeople')
+    let xhr = new XMLHttpRequest()
 
-    let myHeaders = new Headers();
-    let myInit = { method: 'GET',
-        headers: myHeaders,
-        mode: 'cors',
-        cache: 'default'
-    };
-
-
-    let myRequest = new Request(url, myInit)
-
-    fetch(myRequest)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            appendPeople(data.users)
+    name.addEventListener('input', () => {
+        let data = JSON.stringify({
+            "nome": name.value
         })
-        .catch(error => console.log(error))
+
+        xhr.responseType = 'json'
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4) {
+                if (!xhr.response.users)
+                    window.location.replace("http://www.w3schools.com")
+
+                appendPeople(xhr.response.users)
+            }
+        }
+
+        xhr.open('POST', 'http://localhost:8080/buscar')
+        if (name.value.length >2) {
+            xhr.send(data)
+        }
+    })
+
 }

@@ -45,70 +45,19 @@
 
                     <?= view('templates/submenu') ?>
 
+                    <form action="#">
+                        <input id="searchPeople" oninput="ajaxSearch()" type="text" name="search" placeholder="I’m looking for..." class="form-control" required>
+                    </form>
+
                     <!-- Member Items Start -->
                     <div class="member--items">
                         <div id="rowOfPeople" class="row gutter--15 AdjustRow">
 
-                            <?php foreach ($data as $person): ?>
 
-                                <div class="col-md-3 col-xs-6 col-xxs-12 cards-of-people">
-                                    <!-- Member Item Start -->
-                                    <div class="member--item online">
-                                        <div class="img img-circle">
-                                            <a href="<?= base_url('perfil/' . $person->id) ?>" class="btn-link">
-                                                <img src="<? base_url('public/assets/img/members-img/member-02.jpg') ?>"
-                                                     alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="name">
-                                            <h3 class="h6 fs--12">
-                                                <a href="<?= base_url('perfil/' . $person->id) ?>"
-                                                   class="btn-link"><?= $person->nome ?> <?= $person->sobrenome ?></a>
-                                            </h3>
-                                        </div>
-
-                                        <!--                                    <div class="activity">-->
-                                        <!--                                        <p><i class="fa mr--8 fa-clock-o"></i>Active 5 monts ago</p>-->
-                                        <!--                                    </div>-->
-
-                                        <div class="actions">
-                                            <ul class="nav">
-                                                <li>
-                                                    <a href="#" title="Adicionar amigo" class="btn-link"
-                                                       data-toggle="tooltip"
-                                                       data-placement="bottom">
-                                                        <i class="fa fa-user-plus"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Member Item End -->
-                                </div>
-
-                            <?php endforeach ?>
 
                         </div>
                     </div>
                     <!-- Member Items End -->
-
-                    <!-- Page Count Start -->
-                    <div class="page--count pt--30">
-                        <label class="ff--primary fs--14 fw--500 text-darker">
-
-                            <!-- Load More Button Start -->
-                            <div class="load-more--btn pt--30 text-center">
-                                <a onclick="seeMore()" class="btn btn-animate">
-                                    <span>Ver mais<i class="fa ml--10 fa-caret-right"></i></span>
-                                </a>
-                            </div>
-                            <!-- Load More Button End -->
-
-                        </label>
-
-                    </div>
-                    <!-- Page Count End -->
 
                 </div>
             </div>

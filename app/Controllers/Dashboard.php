@@ -15,26 +15,40 @@ class Dashboard extends BaseController{
 
         $data['perfil'] = toGet('/profile/'.session()->get('id'), session()->get('access_token'));
         $data['perfil'] = $data['perfil']->perfil[0];
-        //TODO - get bio from database
         echo view('templates/header');
         echo view('pages/dashboard/home', $data);
         echo view('templates/footer_scripts');
     }
 
-    public function pessoas(){
+    public function myFriends(){
 
         $data = toGet('users/0', session()->get('access_token'));
         if(!$data){
             return redirect()->to(base_url().'/logout');
         }
 
-//        echo '<pre>';
-//        var_dump($data);
-//        die();
-
         echo view('templates/header');
         echo view('pages/dashboard/people', [ 'data' => $data->users]);
         echo view('templates/footer_scripts');
+    }
+
+    public function searchPeople(){
+        echo view('templates/header');
+        echo view('pages/dashboard/search-people');
+        echo view('templates/footer_scripts');
+    }
+
+    public function search(){
+        //TODO - logout when token expire
+        $data = file_get_contents('php://input');
+        $res = toPost($data, '/search', session()->get('access_token'));
+
+        if(!$res){
+            echo json_encode(["status" => false]);
+        }
+
+        $res = json_encode($res);
+        echo $res;
     }
 
     public function seeMore($skip){
