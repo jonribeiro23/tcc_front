@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use function App\Helpers\toGet;
 use function App\Helpers\toPost;
 use function App\Helpers\toPut;
 
@@ -71,6 +72,23 @@ class User extends BaseController{
         $res = toPut($data,'/user/'.session()->get('id'), session()->get('access_token'));
         $this->session->setFlashdata('mensagem', $res->mensagem);
         return redirect()->to(base_url('home'));
+    }
+
+    public function profile($id){
+        $res = toGet('/profile/'.$id, session()->get('access_token'));
+//        echo '<pre>';
+//        var_dump($res);
+//        die();
+        if(!$res){
+            return redirect()->to(base_url().'/logout');
+        }
+
+        $data['perfil'] = $res->perfil;
+        $data['is_following'] = toGet('is-following/'.$id, session()->get('access_token'));
+
+        echo view('templates/header');
+        echo view('pages/dashboard/profile', $data);
+        echo view('templates/footer_scripts');
     }
 
     private function setUserMethod($user_data){

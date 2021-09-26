@@ -1,3 +1,5 @@
+const URL = 'http://localhost:8080/'
+
 function cleanView(){
     let row = document.querySelector('#rowOfPeople')
     let cards = document.querySelectorAll('.cards-of-people')
@@ -31,12 +33,12 @@ function appendPeople(data){
         divMemberItem.className = 'member--item online'
         divImg.className = 'img img-circle'
         aImg.className = 'btn-link'
-        aImg.href = "<?php echo base_url('perfil/');" + person.id +  "?>"
+        aImg.href = URL+'perfil/'+ person.id
         img.src = "public/assets/img/members-img/member-02.jpg"
         divName.className = 'name'
         h3.className = 'h6 fs--12'
         aName.className = 'btn-link'
-        aName.href = "<?php echo base_url('perfil/');" + person.id +  "?>"
+        aName.href = URL+'perfil/'+ person.id
         divActions.className = 'actions'
         ul.className = 'nav'
         aNewFriend.className = 'btn-link'
@@ -82,14 +84,14 @@ function ajaxSearch(){
         xhr.responseType = 'json'
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4) {
-                if (!xhr.response.users)
+                if (xhr.response.users == null)
                     window.location.replace("http://www.w3schools.com")
 
                 appendPeople(xhr.response.users)
             }
         }
 
-        xhr.open('POST', 'http://localhost:8080/buscar')
+        xhr.open('POST', URL+'buscar')
         if (name.value.length >2) {
             xhr.send(data)
         }

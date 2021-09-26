@@ -46,6 +46,7 @@ $routes->match(['get', 'post'], 'cadastrar', 'Home::subscribe');
 $routes->post('logar', 'User::login');
 $routes->get('logout', 'User::logout');
 $routes->post('editar-dados', 'User::editar', ['filter' => 'auth']);
+$routes->get('perfil/(:any)', 'User::profile/$1', ['filter' => 'auth']);
 
 //Dashboard
 $routes->get('home', 'Dashboard::index', ['filter' => 'auth']);
