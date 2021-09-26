@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use function App\Helpers\toDelete;
 use function App\Helpers\toGet;
 use function App\Helpers\toPost;
 use function App\Helpers\toPut;
@@ -76,9 +77,7 @@ class User extends BaseController{
 
     public function profile($id){
         $res = toGet('/profile/'.$id, session()->get('access_token'));
-//        echo '<pre>';
-//        var_dump($res);
-//        die();
+
         if(!$res){
             return redirect()->to(base_url().'/logout');
         }
@@ -89,6 +88,30 @@ class User extends BaseController{
         echo view('templates/header');
         echo view('pages/dashboard/profile', $data);
         echo view('templates/footer_scripts');
+    }
+
+    public function follow($id){
+
+        $data = toGet('follow/'.$id, session()->get('access_token'));
+
+        if(!$data){
+            return redirect()->to(base_url().'/logout');
+        }
+
+        $res = json_encode($data);
+        echo $res;
+    }
+
+    public function unfollow($id){
+
+        $data = toDelete('follow/'.$id, session()->get('access_token'));
+
+        if(!$data){
+            return redirect()->to(base_url().'/logout');
+        }
+
+        $res = json_encode($data);
+        echo $res;
     }
 
     private function setUserMethod($user_data){

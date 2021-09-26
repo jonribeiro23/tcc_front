@@ -65,6 +65,10 @@ $routes->post('criar-aula/(:any)', 'Courses::criarAula/$1', ['filter' => 'auth']
 $routes->post('comment/(:any)', 'Courses::postComment/$1', ['filter' => 'auth']);
 $routes->post('get-comment', 'Courses::getComment', ['filter' => 'auth']);
 
+//Follow
+$routes->get('seguir/(:any)', 'User::follow/$1', ['filter' => 'auth']);
+$routes->delete('deixar-de-seguir/(:any)', 'User::unfollow/$1', ['filter' => 'auth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

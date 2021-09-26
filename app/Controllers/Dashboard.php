@@ -51,18 +51,4 @@ class Dashboard extends BaseController{
         echo $res;
     }
 
-    public function seeMore($skip){
-
-        $data = toGet('users/'.$skip, session()->get('access_token'));
-        if(!$data){
-            return redirect()->to(base_url().'/logout');
-        }
-
-//        echo '<pre>';
-//        var_dump($data);
-//        die();
-
-        $res = json_encode($data);
-        echo $res;
-    }
 }
