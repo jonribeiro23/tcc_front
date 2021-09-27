@@ -20,15 +20,27 @@ class Dashboard extends BaseController{
         echo view('templates/footer_scripts');
     }
 
-    public function myFriends(){
+    public function following(){
 
-        $data = toGet('users/0', session()->get('access_token'));
+        $data = toGet('who-i-follow', session()->get('access_token'));
         if(!$data){
             return redirect()->to(base_url().'/logout');
         }
 
         echo view('templates/header');
-        echo view('pages/dashboard/people', [ 'data' => $data->users]);
+        echo view('pages/dashboard/following', [ 'data' => $data->users]);
+        echo view('templates/footer_scripts');
+    }
+
+    public function followers(){
+
+        $data = toGet('who-follow-me', session()->get('access_token'));
+        if(!$data){
+            return redirect()->to(base_url().'/logout');
+        }
+
+        echo view('templates/header');
+        echo view('pages/dashboard/followers', [ 'data' => $data->users]);
         echo view('templates/footer_scripts');
     }
 

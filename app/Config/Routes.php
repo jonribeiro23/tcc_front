@@ -51,7 +51,8 @@ $routes->get('perfil/(:any)', 'User::profile/$1', ['filter' => 'auth']);
 //Dashboard
 $routes->get('home', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('pessoas', 'Dashboard::searchPeople', ['filter' => 'auth']);
-$routes->get('amigos', 'Dashboard::friends', ['filter' => 'auth']);
+$routes->get('seguindo', 'Dashboard::following', ['filter' => 'auth']);
+$routes->get('seguidores', 'Dashboard::followers', ['filter' => 'auth']);
 $routes->post('buscar', 'Dashboard::search', ['filter' => 'auth']);
 $routes->get('see-more/(:any)', 'Dashboard::seeMore/$1', ['filter' => 'auth']);
 

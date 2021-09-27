@@ -23,6 +23,12 @@
             <h2 class="h3 fw--600"><?= session()->get('nome') ?></h2>
         </div>
 
+        <div class=" float--center">
+            <h2 class="h4">
+                <?= count($data) ?> <?= count($data) > 1 ? 'seguidores' : 'seguidor' ?>
+            </h2>
+        </div>
+
         <div class="cover--user-desc fw--400 fs--18 fstyle--i text-darkest">
             <p><?= isset($perfil) ? $perfil->bio : '' ?></p>
         </div>
@@ -40,16 +46,40 @@
 
                     <?= view('templates/submenu') ?>
 
-                    <form action="#">
-                        <input id="searchPeople" oninput="ajaxSearch()" type="text" name="search" placeholder="I’m looking for..." class="form-control" required>
-                    </form>
-
                     <!-- Member Items Start -->
                     <div class="member--items">
-                        <div id="rowOfPeople" class="row gutter--15 AdjustRow">
+                        <div class="row gutter--15 AdjustRow">
+                            <?php foreach ($data as $person): ?>
+                            <div class="col-md-3 col-xs-6 col-xxs-12">
+                                <!-- Member Item Start -->
+                                <div class="member--item online">
+                                    <div class="img img-circle">
+                                        <a href="<?= base_url('perfil').'/'.$person->id ?>" class="btn-link">
+                                            <img src="<?= base_url('public/assets/img/members-img/member-03.jpg') ?>"
+                                                 alt="">
+                                        </a>
+                                    </div>
 
+                                    <div class="name">
+                                        <h3 class="h6 fs--12">
+                                            <a href="member-activity-personal.html" class="btn-link"><?= $person->nome ?></a>
+                                        </h3>
+                                    </div>
 
-
+                                    <div class="actions">
+                                        <ul class="nav">
+                                            <li>
+                                                <a href="<?= base_url('perfil').'/'.$person->id ?>" title="Ver" class="btn-link" data-toggle="tooltip"
+                                                   data-placement="bottom">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Member Item End -->
+                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                     <!-- Member Items End -->
@@ -404,6 +434,3 @@
     <a href="#" class="btn"><i class="fa fa-caret-up"></i></a>
 </div>
 <!-- Back To Top Button End -->
-
-<script src="<?= base_url('public/assets/js/people.js') ?>"></script>
-<script src="<?= base_url('public/assets/js/search-people.js') ?>"></script>
