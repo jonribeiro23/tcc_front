@@ -20,12 +20,12 @@
         <?php endif ?>
 
         <div class="cover--user-name">
-            <h2 class="h3 fw--600"><?= session()->get('nome') ?></h2>
+            <h2 class="h3 fw--600"><?= $nome ?></h2>
         </div>
 
         <div class=" float--center">
             <h2 class="h4">
-                Seguindo <?= count($data) ?>
+                <?= count($data) ?> <?= count($data) > 1 ? 'seguidores' : 'seguidor' ?>
             </h2>
         </div>
 
@@ -44,11 +44,10 @@
             <div class="main--content col-md-12 pb--60" data-trigger="stickyScroll">
                 <div class="main--content-inner drop--shadow">
 
-                    <?= view('templates/submenu') ?>
+                    <?= view('templates/submenu-friend') ?>
 
                     <!-- Member Items Start -->
                     <div class="member--items">
-
                         <div class="row gutter--15 AdjustRow">
                             <?php foreach ($data as $person): ?>
                             <div class="col-md-3 col-xs-6 col-xxs-12">
@@ -425,10 +424,6 @@
 <!-- Footer Section End -->
 </div>
 <!-- Wrapper End -->
-
-<!--Modal-->
-<?= view('templates/edit_modal') ?>
-<!--Modal End-->
 
 <!-- Back To Top Button Start -->
 <div id="backToTop">

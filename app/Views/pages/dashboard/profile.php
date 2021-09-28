@@ -48,7 +48,7 @@
                 <div class="main--content col-md-12 pb--60" data-trigger="stickyScroll">
                     <div class="main--content-inner drop--shadow">
 
-                        <?= view('templates/submenu-amigo')?>
+                        <?= view('templates/submenu-friend') ?>
 
                         <!-- Profile Details Start -->
                         <div class="profile--details fs--14">

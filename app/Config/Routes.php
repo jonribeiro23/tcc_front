@@ -53,6 +53,8 @@ $routes->get('home', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('pessoas', 'Dashboard::searchPeople', ['filter' => 'auth']);
 $routes->get('seguindo', 'Dashboard::following', ['filter' => 'auth']);
 $routes->get('seguidores', 'Dashboard::followers', ['filter' => 'auth']);
+$routes->get('seguidores-do-amigo/(:any)', 'Dashboard::followersOfFriend/$1', ['filter' => 'auth']);
+$routes->get('quem-amigo-segue/(:any)', 'Dashboard::whoFriendIsFollowing/$1', ['filter' => 'auth']);
 $routes->post('buscar', 'Dashboard::search', ['filter' => 'auth']);
 $routes->get('see-more/(:any)', 'Dashboard::seeMore/$1', ['filter' => 'auth']);
 

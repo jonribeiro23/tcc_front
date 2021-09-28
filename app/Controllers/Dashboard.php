@@ -44,6 +44,32 @@ class Dashboard extends BaseController{
         echo view('templates/footer_scripts');
     }
 
+    public function followersOfFriend($id){
+
+        $data = toGet('followers-of-friend/'.$id, session()->get('access_token'));
+        $nome = toGet('user/'.$id, session()->get('access_token'));
+        if(!$data){
+            return redirect()->to(base_url().'/logout');
+        }
+
+        echo view('templates/header');
+        echo view('pages/dashboard/followers-of-friend', [ 'data' => $data->users, 'nome' => $nome->usuario[0]->nome]);
+        echo view('templates/footer_scripts');
+    }
+
+    public function whoFriendIsFollowing($id){
+
+        $data = toGet('who-friend-is-following/'.$id, session()->get('access_token'));
+        $nome = toGet('user/'.$id, session()->get('access_token'));
+        if(!$data){
+            return redirect()->to(base_url().'/logout');
+        }
+
+        echo view('templates/header');
+        echo view('pages/dashboard/who-friend-is-following', [ 'data' => $data->users, 'nome' => $nome->usuario[0]->nome]);
+        echo view('templates/footer_scripts');
+    }
+
     public function searchPeople(){
         echo view('templates/header');
         echo view('pages/dashboard/search-people');
