@@ -67,8 +67,6 @@ class User extends BaseController{
             'facebook' => $this->request->getVar('facebook'),
             'email' => session()->get('email')
         ]);
-//        var_dump($data);
-//        die();
 
         $res = toPut($data,'/user/'.session()->get('id'), session()->get('access_token'));
         $this->session->setFlashdata('mensagem', $res->mensagem);
@@ -83,6 +81,7 @@ class User extends BaseController{
         }
 
         $data['perfil'] = $res->perfil;
+        $data['instructor'] = explode(' ', $res->perfil[0]->nome);
         $data['is_following'] = toGet('is-following/'.$id, session()->get('access_token'));
 
         echo view('templates/header');

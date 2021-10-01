@@ -60,10 +60,14 @@ $routes->get('see-more/(:any)', 'Dashboard::seeMore/$1', ['filter' => 'auth']);
 
 //Courses
 $routes->get('cursos', 'Courses::courses', ['filter' => 'auth']);
+$routes->get('ver/(:any)', 'Courses::getOtherCourse/$1', ['filter' => 'auth']);
+$routes->get('todos-cursos', 'Courses::allCourses', ['filter' => 'auth']);
 $routes->get('curso/aulas', 'Courses::classes', ['filter' => 'auth']);
 $routes->get('curso/(:any)', 'Courses::getCurso/$1', ['filter' => 'auth']);
 $routes->post('criar-curso', 'Courses::criarCurso', ['filter' => 'auth']);
 $routes->post('criar-aula/(:any)', 'Courses::criarAula/$1', ['filter' => 'auth']);
+$routes->get('curso-do-usuario/(:any)', 'Courses::getCoureOfAUser/$1', ['filter' => 'auth']);
+$routes->get('assistidos-por/(:any)', 'Courses::watchedBy/$1', ['filter' => 'auth']);
 
 $routes->post('comment/(:any)', 'Courses::postComment/$1', ['filter' => 'auth']);
 $routes->post('get-comment', 'Courses::getComment', ['filter' => 'auth']);

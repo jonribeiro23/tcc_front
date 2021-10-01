@@ -80,8 +80,9 @@
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li><a href="<?= base_url('cursos') ?>">Meus Cursos</a></li>
+                                <li><a href="<?= base_url('cursos') ?>">Criar curso</a></li>
                                 <li><a href="product-details.html">Assistir Curso</a></li>
+                                <li><a href="<?= base_url('todos-cursos') ?>">Cursos disponíveis</a></li>
                             </ul>
                         </li>
                         <li><a href="<?= base_url('logout') ?>"><span>Sair</span></a></li>

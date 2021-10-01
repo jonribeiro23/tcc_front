@@ -46,27 +46,37 @@ class Dashboard extends BaseController{
 
     public function followersOfFriend($id){
 
-        $data = toGet('followers-of-friend/'.$id, session()->get('access_token'));
+        $users = toGet('followers-of-friend/'.$id, session()->get('access_token'));
         $nome = toGet('user/'.$id, session()->get('access_token'));
-        if(!$data){
+        if(!$users){
             return redirect()->to(base_url().'/logout');
         }
 
+        $data['data'] = $users->users;
+        $data['nome'] = $nome->usuario[0]->nome;
+        $data['instructor'] = explode(' ', $nome->usuario[0]->nome);
+        $data['is_following'] = toGet('is-following/'.$id, session()->get('access_token'));
+
         echo view('templates/header');
-        echo view('pages/dashboard/followers-of-friend', [ 'data' => $data->users, 'nome' => $nome->usuario[0]->nome]);
+        echo view('pages/dashboard/followers-of-friend', $data);
         echo view('templates/footer_scripts');
     }
 
     public function whoFriendIsFollowing($id){
 
-        $data = toGet('who-friend-is-following/'.$id, session()->get('access_token'));
+        $users = toGet('who-friend-is-following/'.$id, session()->get('access_token'));
         $nome = toGet('user/'.$id, session()->get('access_token'));
-        if(!$data){
+        if(!$users){
             return redirect()->to(base_url().'/logout');
         }
 
+        $data['data'] = $users->users;
+        $data['nome'] = $nome->usuario[0]->nome;
+        $data['instructor'] = explode(' ', $nome->usuario[0]->nome);
+        $data['is_following'] = toGet('is-following/'.$id, session()->get('access_token'));
+
         echo view('templates/header');
-        echo view('pages/dashboard/who-friend-is-following', [ 'data' => $data->users, 'nome' => $nome->usuario[0]->nome]);
+        echo view('pages/dashboard/who-friend-is-following', $data);
         echo view('templates/footer_scripts');
     }
 
