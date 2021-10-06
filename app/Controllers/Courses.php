@@ -142,7 +142,7 @@ class Courses extends BaseController{
     }
 
     public function watchedBy($id){
-        $res = toGet('list-courses-by-instructor/'.$id, session()->get('access_token'));
+        $res = toGet('what-user-watch/'.$id, session()->get('access_token'));
         if(!$res){
             return redirect()->to(base_url().'/logout');
         }
@@ -168,6 +168,15 @@ class Courses extends BaseController{
         $data = file_get_contents('php://input');
 
         $res = toPost($data, '/comment', session()->get('access_token'));
+        $res = json_encode($res);
+        echo $res;
+
+    }
+
+    public function unscribe(){
+        $data = file_get_contents('php://input');
+
+        $res = toPost($data, '/watch-course', session()->get('access_token'));
         $res = json_encode($res);
         echo $res;
 

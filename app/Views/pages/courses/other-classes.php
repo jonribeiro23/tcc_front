@@ -1,4 +1,5 @@
 <?php $session = \Config\Services::session(); ?>
+<?php $uri = service('uri'); ?>
 <!-- Preloader Start -->
 <div id="preloader">
     <div class="preloader--inner"></div>
@@ -13,8 +14,6 @@
             <div class="title">
                 <h2 class="h1 text-white"><?= $curso[0]->nome_curso ?></h2>
             </div>
-
-<!--        <pre>--><?//= var_dump($data) ?><!--</pre>-->
 
             <div class="cover--user-desc fw--400 fs--18 fstyle--i text-grey">
                 <p>Criado por: <?= $instructor ?></p>
@@ -52,6 +51,12 @@
                         <!-- Filter Nav End -->
                     <?php endif ?>
 
+                    <div class="filter--options float--right ml--10">
+                        <a data-toggle="modal" data-overlay="0.1">
+                            <button id="subscribe-on-course" onclick="subscribeOnCourse('<?= $uri->getSegment(2) ?>')" class="btn btn-animate">Inscrever-se</button>
+                        </a>
+                    </div>
+
                     <!-- Gallery Header Start -->
                     <div class="gallery--header pb--15 clearfix">
                         <div class="gallery--title float--left">
@@ -80,7 +85,6 @@
                                                 <p><?= $aula->descricao_aula ?>></p>
                                             </div>
 
-                                            <?php $uri = service('uri'); ?>
                                             <div class="action">
                                                 <a href="#assistir" data-toggle="modal" data-overlay="0.1"
                                                    onclick="getVideo('<?= $aula->link_aula ?>', '<?= $aula->id_aula ?>', '<?= $uri->getSegment(2) ?>')">
@@ -126,6 +130,4 @@
 </div>
 <!-- Back To Top Button End -->
 
-<?= view('templates/create_class_modal') ?>
-<?= view('templates/watch_class_modal') ?>
-<script src="<?= base_url('public/assets/js/modal-curso.js') ?>"></script>
+<script src="<?= base_url('public/assets/js/subscribe.js') ?>"></script>
