@@ -142,7 +142,7 @@ class Courses extends BaseController{
         echo view('templates/footer_scripts');
     }
 
-    public function getCoureOfAUser($id){
+    public function getCourseOfAUser($id){
 
         $res = toGet('list-courses-by-instructor/'.$id, session()->get('access_token'));
         if(!$res){
@@ -153,9 +153,10 @@ class Courses extends BaseController{
 
         $data['cursos'] = $res->courses;
         $data['instructor'] = explode(' ', $instructor->usuario[0]->nome);
+        $data['is_following'] = toGet('is-following/'.$id, session()->get('access_token'));
 
         echo view('templates/header');
-        echo view('pages/dashboard/courses-of-user', $data);
+        echo view('pages/courses/courses-of-user', $data);
         echo view('templates/footer_scripts');
     }
 
@@ -169,9 +170,14 @@ class Courses extends BaseController{
 
         $data['cursos'] = $res->courses;
         $data['instructor'] = explode(' ', $instructor->usuario[0]->nome);
+        $data['is_following'] = toGet('is-following/'.$id, session()->get('access_token'));
+
+//        echo '<pre>';
+//        var_dump($data);
+//        die();
 
         echo view('templates/header');
-        echo view('pages/dashboard/courses-of-user', $data);
+        echo view('pages/courses/courses-of-user', $data);
         echo view('templates/footer_scripts');
     }
 

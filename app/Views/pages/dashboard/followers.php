@@ -62,7 +62,7 @@
 
                                     <div class="name">
                                         <h3 class="h6 fs--12">
-                                            <a href="member-activity-personal.html" class="btn-link"><?= $person->nome ?></a>
+                                            <a href="<?= base_url('perfil').'/'.$person->id ?>" class="btn-link"><?= $person->nome ?></a>
                                         </h3>
                                     </div>
 

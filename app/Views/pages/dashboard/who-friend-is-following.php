@@ -23,7 +23,9 @@
             <h2 class="h3 fw--600"><?= $nome ?></h2>
         </div>
 
-        <div class=" float--center">
+        <?= view('templates/btn-follow-unfollow') ?>
+
+        <div class="float--center mt--40">
             <h2 class="h4">
                 Seguindo <?= count($data) ?>
             </h2>
@@ -430,3 +432,5 @@
     <a href="#" class="btn"><i class="fa fa-caret-up"></i></a>
 </div>
 <!-- Back To Top Button End -->
+
+<script src="<?= base_url('public/assets/js/follow-user.js') ?>"></script>

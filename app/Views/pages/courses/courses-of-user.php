@@ -23,6 +23,8 @@
             <h2 class="h3 fw--600"><?= $instructor[0].' '.$instructor[0] ?></h2>
         </div>
 
+        <?= view('templates/btn-follow-unfollow') ?>
+
 
     </div>
 </div>
@@ -424,3 +426,5 @@
     <a href="#" class="btn"><i class="fa fa-caret-up"></i></a>
 </div>
 <!-- Back To Top Button End -->
+
+<script src="<?= base_url('public/assets/js/follow-user.js') ?>"></script>
