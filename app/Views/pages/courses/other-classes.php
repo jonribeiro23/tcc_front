@@ -51,11 +51,19 @@
                         <!-- Filter Nav End -->
                     <?php endif ?>
 
+                    <?php if($isSubscribed == 1): ?>
+                    <div class="filter--options float--right ml--10">
+                        <a data-toggle="modal" data-overlay="0.1">
+                            <button id="subscribe-on-course" onclick="unsubscribe('<?= $uri->getSegment(2) ?>')" class="btn btn-danger">Desinscrever-se</button>
+                        </a>
+                    </div>
+                    <?php else: ?>
                     <div class="filter--options float--right ml--10">
                         <a data-toggle="modal" data-overlay="0.1">
                             <button id="subscribe-on-course" onclick="subscribeOnCourse('<?= $uri->getSegment(2) ?>')" class="btn btn-animate">Inscrever-se</button>
                         </a>
                     </div>
+                    <?php endif ?>
 
                     <!-- Gallery Header Start -->
                     <div class="gallery--header pb--15 clearfix">

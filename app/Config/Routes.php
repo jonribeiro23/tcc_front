@@ -68,7 +68,8 @@ $routes->post('criar-curso', 'Courses::criarCurso', ['filter' => 'auth']);
 $routes->post('criar-aula/(:any)', 'Courses::criarAula/$1', ['filter' => 'auth']);
 $routes->get('curso-do-usuario/(:any)', 'Courses::getCoureOfAUser/$1', ['filter' => 'auth']);
 $routes->get('assistidos-por/(:any)', 'Courses::watchedBy/$1', ['filter' => 'auth']);
-$routes->post('inscrever', 'Courses::unscribe', ['filter' => 'auth']);
+$routes->get('inscrever/(:any)', 'Courses::subscribe/$1', ['filter' => 'auth']);
+$routes->get('desinscrever/(:any)', 'Courses::unsubscribe/$1', ['filter' => 'auth']);
 
 $routes->post('comment/(:any)', 'Courses::postComment/$1', ['filter' => 'auth']);
 $routes->post('get-comment', 'Courses::getComment', ['filter' => 'auth']);

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use function App\Helpers\toDelete;
 use function App\Helpers\toGet;
 use function App\Helpers\toPost;
 
@@ -115,9 +116,11 @@ class Courses extends BaseController{
         }
 
         $instructor = toGet('user/'.$res->courses[0]->id_instrutor, session()->get('access_token'));
+        $isSubscribed = toGet('is-subscribed/'.$id, session()->get('access_token'));
 
         $data['curso'] = $res->courses;
         $data['instructor'] = $instructor->usuario[0]->nome;
+        $data['isSubscribed'] = $isSubscribed->data;
 
         echo view('templates/header');
         echo view('pages/courses/other-classes', $data);
@@ -173,10 +176,17 @@ class Courses extends BaseController{
 
     }
 
-    public function unscribe(){
-        $data = file_get_contents('php://input');
+    public function subscribe($id){
 
-        $res = toPost($data, '/watch-course', session()->get('access_token'));
+        $res = toGet('/subscription/'.$id, session()->get('access_token'));
+        $res = json_encode($res);
+        echo $res;
+
+    }
+
+    public function unsubscribe($id){
+
+        $res = toDelete('/subscription/'.$id, session()->get('access_token'));
         $res = json_encode($res);
         echo $res;
 
