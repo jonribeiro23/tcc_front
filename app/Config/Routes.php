@@ -62,6 +62,7 @@ $routes->get('see-more/(:any)', 'Dashboard::seeMore/$1', ['filter' => 'auth']);
 $routes->get('cursos', 'Courses::courses', ['filter' => 'auth']);
 $routes->get('ver/(:any)', 'Courses::getOtherCourse/$1', ['filter' => 'auth']);
 $routes->get('todos-cursos', 'Courses::allCourses', ['filter' => 'auth']);
+$routes->get('cursando', 'Courses::MyCourses', ['filter' => 'auth']);
 $routes->get('curso/aulas', 'Courses::classes', ['filter' => 'auth']);
 $routes->get('curso/(:any)', 'Courses::getCurso/$1', ['filter' => 'auth']);
 $routes->post('criar-curso', 'Courses::criarCurso', ['filter' => 'auth']);

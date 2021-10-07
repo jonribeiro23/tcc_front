@@ -3,12 +3,12 @@
 <div class="page--header pt--60 pb--60 text-center" data-bg-img="<?= base_url('public/assets/img/page-header-img/bg.jpg') ?>" data-overlay="0.85">
     <div class="container">
         <div class="title">
-            <h2 class="h1 text-white">Todos os Cursos</h2>
+            <h2 class="h1 text-white">Meus Cursos</h2>
         </div>
 
         <ul class="breadcrumb text-gray ff--primary">
             <li><a href="<?= base_url('home') ?>" class="btn-link">Home</a></li>
-            <li class="active"><span class="text-primary">Cursos</span></li>
+            <li class="active"><span class="text-primary">Cursando</span></li>
         </ul>
     </div>
 </div>

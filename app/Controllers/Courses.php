@@ -37,6 +37,21 @@ class Courses extends BaseController{
         echo view('templates/footer_scripts');
     }
 
+    public function MyCourses(){
+        $cursos = toGet('/what-user-watch/'.session()->get('id'), session()->get('access_token'));
+//        echo '<pre>';
+//        var_dump($cursos);
+//        die();
+        if(!$cursos){
+            return redirect()->to(base_url().'/logout');
+        }
+        $data['cursos'] = $cursos->courses;
+
+        echo view('templates/header');
+        echo view('pages/courses/my-courses', $data);
+        echo view('templates/footer_scripts');
+    }
+
 	public function classes(){
         echo view('templates/header');
         echo view('pages/courses/classes');
