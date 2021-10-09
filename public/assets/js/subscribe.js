@@ -1,7 +1,7 @@
 function subscribeOnCourse(id){
     let btn = document.querySelector('#subscribe-on-course')
-    // let url = 'https://'+location.hostname + '/get-comment'
-    let url = 'http://localhost:8080/inscrever/'+id
+    let url = 'https://'+ location.hostname + '/desinscrever/' + id
+    // let url = 'http://localhost:8080/inscrever/'+id
 
     let myHeaders = new Headers();
     let myInit = { method: 'GET',
@@ -25,8 +25,8 @@ function subscribeOnCourse(id){
 
 function unsubscribe(id){
     let btn = document.querySelector('#subscribe-on-course')
-    // let url = 'https://'+location.hostname + '/get-comment'
-    let url = 'http://localhost:8080/desinscrever/' + id
+    let url = 'https://'+location.hostname + '/desinscrever/' + id
+    // let url = 'http://localhost:8080/desinscrever/' + id
 
     let myHeaders = new Headers();
     let myInit = { method: 'GET',

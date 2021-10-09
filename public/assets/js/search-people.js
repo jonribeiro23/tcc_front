@@ -1,4 +1,5 @@
-const URL = 'http://localhost:8080/'
+// const URL = 'http://localhost:8080/'
+const URL = 'https://'+ location.hostname
 
 function cleanView(){
     let row = document.querySelector('#rowOfPeople')

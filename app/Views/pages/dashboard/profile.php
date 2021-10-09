@@ -6,7 +6,7 @@
 <!-- Preloader End -->
 
     <!-- Cover Header Start -->
-    <div class="cover--header pt--80 text-center" data-bg-img="<?= base_url('public/assets/img/cover-header-img/bg-01.jpg') ?>" data-overlay="0.6" data-overlay-color="white">
+    <div class="cover--header pt--80 text-center" data-bg-img="<?= base_url('public/assets/img/banner-img/home-version-3/social-media-wide.png') ?>" data-overlay="0.6" data-overlay-color="white">
         <div class="container">
             <div class="cover--avatar online" data-overlay="0.3" data-overlay-color="primary">
                 <img src="<?= base_url('public/assets/img/cover-header-img/avatar-01.jpg') ?>" alt="">

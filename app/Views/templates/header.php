@@ -61,8 +61,9 @@
                     <!-- Header Navbar Logo Start -->
                     <div class="header--navbar-logo navbar-brand">
                         <a href="<?= base_url('home') ?>">
-                            <img src="<?= base_url('public/assets/img/logo-white.png') ?>" class="normal" alt="">
-                            <img src="<?= base_url('public/assets/img/logo-black.png') ?>" class="sticky" alt="">
+<!--                            <img src="--><?//= base_url('public/assets/img/logo-white.png') ?><!--" class="normal" alt="">-->
+<!--                            <img src="--><?//= base_url('public/assets/img/logo-black.png') ?><!--" class="sticky" alt="">-->
+                            <h2 style="color: #8B0000">GrowX</h2>
                         </a>
                     </div>
                     <!-- Header Navbar Logo End -->

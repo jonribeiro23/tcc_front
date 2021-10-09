@@ -53,8 +53,8 @@ async function getComment(idCurso, idAula){
         id_aula: idAula,
     })
 
-    // let url = 'https://'+location.hostname + '/get-comment'
-    let url = 'http://localhost:8080/get-comment'
+    let url = 'https://'+location.hostname + '/get-comment'
+    // let url = 'http://localhost:8080/get-comment'
 
     let myHeaders = new Headers();
     let myInit = { method: 'POST',
@@ -104,8 +104,8 @@ async function postComment(idCurso){
         comentario: comment.value
     })
 
-    // let url = 'https://'+location.hostname + '/comment/' + idCurso
-    let url = 'http://localhost:8080//comment/' + idCurso
+    let url = 'https://'+location.hostname + '/comment/' + idCurso
+    // let url = 'http://localhost:8080/comment/' + idCurso
 
     let myHeaders = new Headers();
     let myInit = { method: 'POST',

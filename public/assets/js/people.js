@@ -64,8 +64,8 @@ function appendPeople(data){
 }
 
 function seeMore(){
-    // let url = 'https://'+location.hostname + '/get-comment'
-    let url = 'http://localhost:8080/see-more/' + getAmount()
+    let url = 'https://'+location.hostname + '/see-more/' + getAmount()
+    // let url = 'http://localhost:8080/see-more/' + getAmount()
 
     let myHeaders = new Headers();
     let myInit = { method: 'GET',

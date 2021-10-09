@@ -8,7 +8,7 @@
 
 <!-- Page Header Start -->
 <div class="page--header pt--60 pb--60 text-center"
-     data-bg-img="<?= base_url('public/assets/img/page-header-img/bg.jpg') ?>" data-overlay="0.85">
+     data-bg-img="<?= base_url('public/assets/img/banner-img/home-version-3/video-banner.png') ?>" data-overlay="0.85">
     <div class="container">
         <?php if (isset($curso)): ?>
             <div class="title">
