@@ -2,8 +2,8 @@
 
 namespace App\Helpers;
 
-//define('URL_LOCAL', 'https://r3api-ecuidadores.herokuapp.com/');
-define('URL_LOCAL', 'http://localhost:5000/');
+define('URL_LOCAL', ' https://growx-back.herokuapp.com');
+//define('URL_LOCAL', 'http://localhost:5000/');
 
 function toPost($to_send, $url, $token, $login=false){
 
