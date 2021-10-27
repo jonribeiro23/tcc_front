@@ -22,6 +22,7 @@ class Courses extends BaseController{
 
         echo view('templates/header');
         echo view('pages/courses/courses', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
@@ -34,14 +35,12 @@ class Courses extends BaseController{
 
         echo view('templates/header');
         echo view('pages/courses/all-courses', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
     public function MyCourses(){
         $cursos = toGet('/what-user-watch/'.session()->get('id'), session()->get('access_token'));
-//        echo '<pre>';
-//        var_dump($cursos);
-//        die();
         if(!$cursos){
             return redirect()->to(base_url().'/logout');
         }
@@ -49,12 +48,14 @@ class Courses extends BaseController{
 
         echo view('templates/header');
         echo view('pages/courses/my-courses', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
 	public function classes(){
         echo view('templates/header');
         echo view('pages/courses/classes');
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
@@ -117,6 +118,7 @@ class Courses extends BaseController{
 
         echo view('templates/header');
         echo view('pages/courses/classes', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
@@ -139,6 +141,7 @@ class Courses extends BaseController{
 
         echo view('templates/header');
         echo view('pages/courses/other-classes', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
@@ -157,6 +160,7 @@ class Courses extends BaseController{
 
         echo view('templates/header');
         echo view('pages/courses/courses-of-user', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
@@ -172,12 +176,9 @@ class Courses extends BaseController{
         $data['instructor'] = explode(' ', $instructor->usuario[0]->nome);
         $data['is_following'] = toGet('is-following/'.$id, session()->get('access_token'));
 
-//        echo '<pre>';
-//        var_dump($data);
-//        die();
-
         echo view('templates/header');
         echo view('pages/courses/courses-of-user', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 

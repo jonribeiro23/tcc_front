@@ -17,6 +17,7 @@ class Dashboard extends BaseController{
         $data['perfil'] = $data['perfil']->perfil[0];
         echo view('templates/header');
         echo view('pages/dashboard/home', $data);
+//        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
@@ -59,6 +60,7 @@ class Dashboard extends BaseController{
 
         echo view('templates/header');
         echo view('pages/dashboard/followers-of-friend', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
@@ -77,12 +79,14 @@ class Dashboard extends BaseController{
 
         echo view('templates/header');
         echo view('pages/dashboard/who-friend-is-following', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 
     public function searchPeople(){
         echo view('templates/header');
         echo view('pages/dashboard/search-people');
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 

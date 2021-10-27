@@ -86,6 +86,7 @@ class User extends BaseController{
 
         echo view('templates/header');
         echo view('pages/dashboard/profile', $data);
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
     }
 

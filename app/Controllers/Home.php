@@ -10,6 +10,7 @@ class Home extends BaseController
 	public function index(){
 		echo view('templates/header');
         echo view('pages/home/home');
+        echo view('templates/footer');
         echo view('templates/footer_scripts');
 	}
 
